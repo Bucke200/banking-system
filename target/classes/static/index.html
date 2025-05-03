@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Banking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Online Banking System</h1>
+
+    <!-- Auth Section (Login/Register) -->
+    <div id="auth-section">
+        <h2>Authentication</h2>
+        <div id="register-form" class="form-container">
+            <h3>Register</h3>
+            <input type="text" id="reg-username" placeholder="Username" required><br>
+            <input type="email" id="reg-email" placeholder="Email" required><br>
+            <input type="password" id="reg-password" placeholder="Password" required><br>
+            <button onclick="registerUser()">Register</button>
+            <p id="register-message" class="message"></p>
+        </div>
+        <hr>
+        <div id="login-form" class="form-container">
+            <h3>Login</h3>
+            <input type="text" id="login-username" placeholder="Username" required><br>
+            <input type="password" id="login-password" placeholder="Password" required><br>
+            <button onclick="loginUser()">Login</button>
+            <p id="login-message" class="message"></p>
+        </div>
+    </div>
+
+    <!-- Logged In Section (Hidden by default) -->
+    <div id="logged-in-section" style="display: none;">
+        <h2>Welcome, <span id="welcome-username"></span>! <button onclick="logoutUser()">Logout</button></h2>
+
+        <!-- Accounts Section -->
+        <div id="accounts-section">
+            <h3>Your Accounts</h3>
+            <button onclick="fetchAccounts()">Refresh Accounts</button>
+            <div id="accounts-list"></div>
+            <p id="accounts-message" class="message"></p>
+
+            <h4>Create New Account</h4>
+            <input type="number" id="initial-balance" placeholder="Initial Balance (Optional)" step="0.01"><br>
+            <button onclick="createAccount()">Create Account</button>
+            <p id="create-account-message" class="message"></p>
+        </div>
+        <hr>
+        <!-- Transfer Section -->
+        <div id="transfer-section">
+            <h3>Transfer Funds</h3>
+            <input type="text" id="transfer-from" placeholder="From Account Number" required><br>
+            <input type="text" id="transfer-to" placeholder="To Account Number" required><br>
+            <input type="number" id="transfer-amount" placeholder="Amount" step="0.01" required><br>
+            <input type="text" id="transfer-description" placeholder="Description (Optional)"><br>
+            <button onclick="transferFunds()">Transfer</button>
+            <p id="transfer-message" class="message"></p>
+        </div>
+        <hr>
+        <!-- Transaction History Section -->
+        <div id="history-section">
+            <h3>Transaction History</h3>
+            <input type="text" id="history-account" placeholder="Enter Account Number" required><br>
+            <button onclick="fetchHistory()">Get History</button>
+            <div id="history-list"></div>
+            <p id="history-message" class="message"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
